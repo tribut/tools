@@ -10,7 +10,7 @@
  // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  // GNU General Public License for more details.
  //
- // To read the license please visit http://www.gnu.org/copyleft/gpl.html
+ // To read the license please visit https://www.gnu.org/copyleft/gpl.html
  //
  // Felix Eckhofer <felix@tribut.de>
 
@@ -303,14 +303,14 @@ echo '</tt></div>';
 
 <div style="margin: 3em 1em 0 1em; border: 1px black dashed; text-align: center; font-size: 0.7em">
 <p>
-  Fragen / Anregungen / Kontakt / neues Wörterbuch: <a target="_blank" href="http://tribut.de/kontakt" >hier abgeben</a>
+  Fragen / Anregungen / Kontakt / neues Wörterbuch: <a target="_blank" href="https://tribut.de/kontakt" >hier abgeben</a>
 </p>
 <p>
 <!--[if lte IE 8]><span style="filter: FlipH; -ms-filter: "FlipH"; display: inline-block;"><![endif]-->
 <span style="-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); display: inline-block;">
     &copy;
 </span>
-<!--[if lte IE 8]></span><![endif]--> Der <a href="?show_source">Quelltext dieses Programms</a> steht unter der <a href="http://www.gnu.org/copyleft/gpl.html" target="_blank">GNU GPL</a> zur Verfügung.
+<!--[if lte IE 8]></span><![endif]--> Der <a href="?show_source">Quelltext dieses Programms</a> steht unter der <a href="https://www.gnu.org/copyleft/gpl.html" target="_blank">GNU GPL</a> zur Verfügung.
   <span style="white-space: nowrap;">
     Letzte Änderung: <?php echo date ("d.m.Y H:i", filemtime(__FILE__))?>.
   </span>
