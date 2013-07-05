@@ -319,6 +319,10 @@ echo '</tt></div>';
 </p>
 </div>
 
+<p style="text-align: right; margin: 1em;">
+  <a href="https://flattr.com/submit/auto?user_id=dxbi&url=https://extern.tribut.de/platzhalter&title=Platzhalter&description=L%C3%B6sungshilfe%20f%C3%BCr%20Wortr%C3%A4tsel&language=de&tags=php&category=software"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" /></a>
+</p>
+
 </body>
 </html>
 
