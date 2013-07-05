@@ -175,6 +175,8 @@ foreach ($dictfiles as $name => $file) {
 
 <noscript><br><br><input name="change" type="submit" value="Übernehmen"></noscript>
 
+<small>(<a href="https://github.com/tribut/tools/tree/master/platzhalter/dic">Quellen und Download</a>)</small>
+
 </fieldset>
 
 </form>
@@ -310,7 +312,7 @@ echo '</tt></div>';
 <span style="-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); display: inline-block;">
     &copy;
 </span>
-<!--[if lte IE 8]></span><![endif]--> Der <a href="?show_source">Quelltext dieses Programms</a> steht unter der <a href="https://www.gnu.org/copyleft/gpl.html" target="_blank">GNU GPL</a> zur Verfügung.
+<!--[if lte IE 8]></span><![endif]--> Der <a href="?show_source">Quelltext dieses Programms</a> (<a href="https://github.com/tribut/tools/tree/master/platzhalter">GitHub</a>) steht unter der <a href="https://www.gnu.org/copyleft/gpl.html" target="_blank">GNU GPL</a> zur Verfügung.
   <span style="white-space: nowrap;">
     Letzte Änderung: <?php echo date ("d.m.Y H:i", filemtime(__FILE__))?>.
   </span>
