@@ -123,7 +123,7 @@ fieldset {
 <h1>Platzhalter-Spiel</h1>
 <h2>Wort-mit-<?php echo ($width_mode==1?'(maximal)-':'') . $width; ?>-Buchstaben-Rätsel</h2>
 
-<form method="post" action="<?php echo str_replace('"', '', $_SERVER['REQUEST_URI']); ?>">
+<form method="get" action="<?php echo str_replace('"', '', $_SERVER['REQUEST_URI']); ?>">
 
 <fieldset>
 <legend>Einstellungen</legend>
