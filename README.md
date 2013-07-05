@@ -9,7 +9,7 @@ A repository of tools I wrote at some point but aren't deemed worthy of their ow
 
  * **Platzhalter** (German)
 
-   Find words matching certain puzzles ("number of letters, 3rd letter is D, build from a certain set"). This kind of problem is popular among TV call-in shows, in Germany this was especially true for the now-defunct *9live* station.
+   Find words matching certain puzzles ("number of letters, 3rd letter is D, built from a certain set"). This kind of problem is popular among TV call-in shows, in Germany this was especially true for the now-defunct *9live* station.
 
    [Try the online demo](https://extern.tribut.de/platzhalter)
 
