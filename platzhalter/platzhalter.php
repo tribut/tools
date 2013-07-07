@@ -17,37 +17,37 @@
 /* **************************************************************** */
 /*      CONFIGURATION                                               */
 /* **************************************************************** */
-$min_width = 1;       // minimale wortlänge
-$max_width = 15;      // maximale wortlänge
-$def_width = 4;       // standard wortlänge
+$min_width = 1;       // minimale wortlÃ¤nge
+$max_width = 15;      // maximale wortlÃ¤nge
+$def_width = 4;       // standard wortlÃ¤nge
 $height = 15;         // anzahl worteingabefelder
-$dictfiles = array(   // wörterbuchdateien
-	"Deutsche Wörter" => "german.dic",
-	"Deutsche Städte" => "staedte.dic",
-	"Deutsche Städte und Gemeinden" => "gemeinden.dic",
+$dictfiles = array(   // wÃ¶rterbuchdateien
+	"Deutsche WÃ¶rter" => "german.dic",
+	"Deutsche StÃ¤dte" => "staedte.dic",
+	"Deutsche StÃ¤dte und Gemeinden" => "gemeinden.dic",
 	"KFZ-Kennzeichen Deutschland" => "kfz.dic",
 	"Automarken" => "autos.dic",
 	"Tiere" => "tiere.dic"
 );
-$width_modes = array( // modi für wortlänge
+$width_modes = array( // modi fÃ¼r wortlÃ¤nge
 	"exakt",      // "normal"
 	"zwischen"    // "spezial"
-); // bei änderungen hier muss die logik
+); // bei Ã¤nderungen hier muss die logik
    // entsprechend angepasst werden
 
 /* **************************************************************** */
 /*      DEFAULTS                                                    */
 /* **************************************************************** */
-$width = $def_width;  // gew. (max.) wortlänge
-$dict = 0;            // nummer des gew. wörterbuchs
-$dictfile = current($dictfiles); // dateiname des gew. wörterbuchs
-$width_mode = 0;      // modus für wortlänge
+$width = $def_width;  // gew. (max.) wortlÃ¤nge
+$dict = 0;            // nummer des gew. wÃ¶rterbuchs
+$dictfile = current($dictfiles); // dateiname des gew. wÃ¶rterbuchs
+$width_mode = 0;      // modus fÃ¼r wortlÃ¤nge
 
 /* **************************************************************** */
 /*      USER INPUT                                                  */
 /* **************************************************************** */
 if (isset($_GET['show_source'])) {
-	header('Content-Type: text/plain; charset=iso-8859-15');
+	header('Content-Type: text/plain; charset=utf-8');
 	readfile(__FILE__);
 	exit;
 }
@@ -89,11 +89,11 @@ if (isset($_REQUEST['dict'])) {
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-15">
-<meta name="description" content="Tool zum Lösen von Buchstabenrätseln (Platzhalter) wie es bei Call-In-Formaten wie 9live oder Money Express gespielt wird. Das Programm hat Listen für <?php echo implode(", ", array_flip($dictfiles)); ?>">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Tool zum LÃ¶sen von BuchstabenrÃ¤tseln (Platzhalter) wie es bei Call-In-Formaten wie 9live oder Money Express gespielt wird. Das Programm hat Listen fÃ¼r <?php echo implode(", ", array_flip($dictfiles)); ?>">
 <meta name="author" content="Felix Eckhofer">
 <meta name="robots" content="index,follow">
-<title>Lösungshilfe für "Wort mit <?php echo $width; ?> Buchstaben"</title>
+<title>LÃ¶sungshilfe fÃ¼r "Wort mit <?php echo $width; ?> Buchstaben"</title>
 <script language="JavaScript" type="text/javascript">
  <!--
  function advance(currentField,nextField) {
@@ -121,13 +121,13 @@ fieldset {
 <body>
 
 <h1>Platzhalter-Spiel</h1>
-<h2>Wort-mit-<?php echo ($width_mode==1?'(maximal)-':'') . $width; ?>-Buchstaben-Rätsel</h2>
+<h2>Wort-mit-<?php echo ($width_mode==1?'(maximal)-':'') . $width; ?>-Buchstaben-RÃ¤tsel</h2>
 
 <form method="get" action="<?php echo str_replace('"', '', $_SERVER['REQUEST_URI']); ?>">
 
 <fieldset>
 <legend>Einstellungen</legend>
-<p>Wieviele Buchstaben sollen die gesuchten Wörter haben?</p>
+<p>Wieviele Buchstaben sollen die gesuchten WÃ¶rter haben?</p>
 
 <select name="width_mode" onchange="javascript:document.forms[0].submit()">
 <?php
@@ -162,7 +162,7 @@ for ($i = $min_width; $i <= $max_width; $i++) {
 }
 ?>
 </select>
-<p>Welches Wörterbuch soll benutzt werden?</p>
+<p>Welches WÃ¶rterbuch soll benutzt werden?</p>
 <select name="dict" onchange="javascript:document.forms[0].submit()">
 <?php
 $i = 0;
@@ -173,7 +173,7 @@ foreach ($dictfiles as $name => $file) {
 ?>
 </select>
 
-<noscript><br><br><input name="change" type="submit" value="Übernehmen"></noscript>
+<noscript><br><br><input name="change" type="submit" value="Ãœbernehmen"></noscript>
 
 <small>(<a href="https://github.com/tribut/tools/tree/master/platzhalter/dic">Quellen und Download</a>)</small>
 
@@ -207,7 +207,7 @@ echo "<br>\n";
 <fieldset>
 <legend>Ausschluss</legend>
 <p>Hier werden die Buchstaben vorgegeben, die an entsprechenden Stelle <em>nicht im Wort vorkommen sollen</em>.</p>
-<p>Wird also in einer Reihe "WELT" eingegeben, wird nach Wörtern gesucht, die an erster Stelle kein 'W', an zweiter Stelle kein 'E', an dritter Stelle kein 'L' und an vierter Stelle kein 'T' enthalten. Gibt es für die entsprechende Position eine Vorgabe, wird das Ausschlusskriterium ignoriert.</p>
+<p>Wird also in einer Reihe "WELT" eingegeben, wird nach WÃ¶rtern gesucht, die an erster Stelle kein 'W', an zweiter Stelle kein 'E', an dritter Stelle kein 'L' und an vierter Stelle kein 'T' enthalten. Gibt es fÃ¼r die entsprechende Position eine Vorgabe, wird das Ausschlusskriterium ignoriert.</p>
 <?php
 for ($i = 0; $i < $height; $i++) {
 	for ($j = 0; $j < $width; $j++) {
@@ -222,14 +222,14 @@ for ($i = 0; $i < $height; $i++) {
 </fieldset>
 
 <fieldset>
-<legend>Zulässige Buchstaben</legend>
-<p>Wenn das Feld ausgefüllt wird, werden nur Worte gesucht, die sich aus den <em>Buchstaben der Eingabe bilden lassen</em>.</p>
-<p>Wird hier also zum Beipiel "Brocken" eingegeben, lässt sich daraus BOCK bilden, nicht aber ECKE oder BRATEN).</p>
+<legend>ZulÃ¤ssige Buchstaben</legend>
+<p>Wenn das Feld ausgefÃ¼llt wird, werden nur Worte gesucht, die sich aus den <em>Buchstaben der Eingabe bilden lassen</em>.</p>
+<p>Wird hier also zum Beipiel "Brocken" eingegeben, lÃ¤sst sich daraus BOCK bilden, nicht aber ECKE oder BRATEN).</p>
 <input type="text" name="buildfrom" size="20" value="<?php echo str_replace('"','',$_REQUEST['buildfrom']) ?>">
 </fieldset>
 
 <input name="go" type="submit" value="Anzeigen">
-<input name="reset" type="submit" value="Eingaben zurücksetzen">
+<input name="reset" type="submit" value="Eingaben zurÃ¼cksetzen">
 
 </form>
 
@@ -239,8 +239,8 @@ if (isset($_REQUEST['go'])){
 for ($i = 0; $i < $width; $i++) {
 	for ($j = 0; $j < $height; $j++) {
 		$formfield = 'value' . $j . $i;
-		if (preg_match('/^[A-ZÖÄÜa-zöäüß]$/', $_REQUEST[$formfield])) {
-			$values[$i][$j] = mb_strtoupper($_REQUEST[$formfield]);
+		if (preg_match('/^[A-ZÃ–Ã„Ãœa-zÃ¶Ã¤Ã¼ÃŸ]$/u', $_REQUEST[$formfield])) {
+			$values[$i][$j] = mb_strtoupper($_REQUEST[$formfield], 'UTF-8');
 		}
 	}
 	@$values[$i] = array_unique($values[$i]);
@@ -248,8 +248,8 @@ for ($i = 0; $i < $width; $i++) {
 
 $query = '';
 for ($i = $width - 1; $i >= 0; $i--) {
-	if (preg_match('/^[A-ZÖÄÜa-zöäüß]$/', $_REQUEST['preset' .$i])){
-		$query = '['.mb_strtoupper($_REQUEST['preset' .$i]).']' . $query;
+	if (preg_match('/^[A-ZÃ–Ã„Ãœa-zÃ¶Ã¤Ã¼ÃŸ]$/u', $_REQUEST['preset' .$i])){
+		$query = '['.mb_strtoupper($_REQUEST['preset' .$i], 'UTF-8').']' . $query;
 	}else{
 		$subquery = '';
 		for ($j = 0; $j < $height; $j++) {
@@ -258,7 +258,7 @@ for ($i = $width - 1; $i >= 0; $i--) {
 		}
 	
 		if (empty($subquery)) {
-			$query = '([A-ZÖÄÜß()&,0-9. -])' . $query;
+			$query = '([A-ZÃ–Ã„ÃœÃŸ()&,0-9. -])' . $query;
 		}else{
 			$query = '([^' . $subquery . ' \n\r.])' . $query;
 		}
@@ -269,7 +269,7 @@ for ($i = $width - 1; $i >= 0; $i--) {
 	}
 }
 
-$query = '/^' . $query . '$/';
+$query = '/^' . $query . '$/u';
 // echo $query;
 
 $words = file($dictfile);
@@ -277,7 +277,7 @@ $match = preg_grep($query, $words);
 
 function is_built_from($word)
 {
-	$filter = mb_strtoupper($_REQUEST['buildfrom']);
+	$filter = mb_strtoupper($_REQUEST['buildfrom'], 'UTF-8');
 	if (empty($filter)) {
 		return true;
 	}
@@ -305,16 +305,16 @@ echo '</tt></div>';
 
 <div style="margin: 3em 1em 0 1em; border: 1px black dashed; text-align: center; font-size: 0.7em">
 <p>
-  Fragen / Anregungen / Kontakt / neues Wörterbuch: <a target="_blank" href="https://tribut.de/kontakt" >hier abgeben</a>
+  Fragen / Anregungen / Kontakt / neues WÃ¶rterbuch: <a target="_blank" href="https://tribut.de/kontakt" >hier abgeben</a>
 </p>
 <p>
   <!--[if lte IE 8]><span style="filter: FlipH; -ms-filter: "FlipH"; display: inline-block;"><![endif]-->
   <span style="-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); display: inline-block;">
     &copy;
   </span>
-  <!--[if lte IE 8]></span><![endif]--> Der <a href="?show_source">Quelltext dieses Programms</a> (<a href="https://github.com/tribut/tools/tree/master/platzhalter">GitHub</a>) steht unter der <a href="https://www.gnu.org/copyleft/gpl.html" target="_blank">GNU GPL</a> zur Verfügung.
+  <!--[if lte IE 8]></span><![endif]--> Der <a href="?show_source">Quelltext dieses Programms</a> (<a href="https://github.com/tribut/tools/tree/master/platzhalter">GitHub</a>) steht unter der <a href="https://www.gnu.org/copyleft/gpl.html" target="_blank">GNU GPL</a> zur VerfÃ¼gung.
   <span style="white-space: nowrap;">
-    Letzte Änderung: <?php echo date ("d.m.Y H:i", filemtime(__FILE__))?>.
+    Letzte Ã„nderung: <?php echo date ("d.m.Y H:i", filemtime(__FILE__))?>.
   </span>
 </p>
 </div>
