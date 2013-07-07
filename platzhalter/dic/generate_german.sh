@@ -5,7 +5,7 @@ curl -f -s http://ftp.tu-chemnitz.de/pub/Local/urz/ding/de-en/de-en.txt.gz |
 	sed -r 's#::.*##;    # delete translation
 	/^#.*/d;             # delete comments
 	s/ ?[;|] ?/\
-/g;                      # split alternative forms into seperate lines
+/g;                          # split alternative forms into seperate lines
 	s# ?[([{].*##;       # delete annotations and metadata
 	/ [^ ]/d;            # delete composite phrases
 	/\.\.\.$/d;          # delete word-parts
