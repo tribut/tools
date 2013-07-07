@@ -181,7 +181,7 @@ foreach ($dictfiles as $name => $file) {
 
 </form>
 
-<form method="post" action="<?php echo str_replace('"', '', $_SERVER['REQUEST_URI']); ?>">
+<form method="post" action="<?php echo str_replace('"', '', $_SERVER['REQUEST_URI']); ?>#result">
 
 <input type="hidden" name="width" value="<?php echo $width; ?>">
 <input type="hidden" name="width_min" value="<?php echo $width_min; ?>">
@@ -292,7 +292,7 @@ function is_built_from($word)
 
 $match = array_filter($match, 'is_built_from');
 
-echo '<h2>' . count($match) . ' Treffer</h2>';
+echo '<a name="result"></a><h2>' . count($match) . ' Treffer</h2>';
 echo '<div style="padding: 1em 2em; background: #cdcdcd;"><tt>';
 foreach($match as $word) {
 	echo '   '.$word.'<br>';
