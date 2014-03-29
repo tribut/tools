@@ -9,19 +9,24 @@
 # felix@tribut.de
 
 LOGFILE="`mktemp`"
+IFSTATE="`ip addr show dev \"$IFACE\" 2>>\"$LOGFILE\"`"
 PRESTATE="`ip addr show dev \"$IFACE\" up 2>>\"$LOGFILE\"`"
 FAILED="0"
 
-date >> "$LOGFILE"
-echo "Running randomize-mac for interface '$IFACE'" >> "$LOGFILE"
-echo >> "$LOGFILE"
+if [ -n "$IFSTATE" ]; then
+	date >> "$LOGFILE"
+	echo "Running randomize-mac for interface '$IFACE'" >> "$LOGFILE"
+	echo >> "$LOGFILE"
 
-[ -n "$PRESTATE" ] && ip link set dev "$IFACE" down >>"$LOGFILE" 2>&1
-macchanger -A "$IFACE" >>"$LOGFILE" 2>&1 || FAILED=1
-[ -n "$PRESTATE" ] && ip link set dev "$IFACE" up >>"$LOGFILE" 2>&1
+	[ -n "$PRESTATE" ] && ip link set dev "$IFACE" down >>"$LOGFILE" 2>&1
+	macchanger -A "$IFACE" >>"$LOGFILE" 2>&1 || FAILED=1
+	[ -n "$PRESTATE" ] && ip link set dev "$IFACE" up >>"$LOGFILE" 2>&1
 
-if [ "$FAILED" = "1" ]; then
-	cat "$LOGFILE" | mail -s "[`hostname`] macchanger failed" root
+	if [ "$FAILED" = "1" ]; then
+		cat "$LOGFILE" | mail -s "[`hostname`] macchanger failed" root
+	fi
+else
+	echo "Interface $IFACE does not exist, skipping..." >&2
 fi
 
 rm -f "$LOGFILE"
