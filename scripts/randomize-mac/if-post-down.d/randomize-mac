@@ -10,13 +10,14 @@
 
 LOGFILE="`mktemp`"
 IFSTATE="`ip addr show dev \"$IFACE\" 2>>\"$LOGFILE\"`"
-PRESTATE="`ip addr show dev \"$IFACE\" up 2>>\"$LOGFILE\"`"
-FAILED="0"
 
 if [ -n "$IFSTATE" ]; then
 	date >> "$LOGFILE"
 	echo "Running randomize-mac for interface '$IFACE'" >> "$LOGFILE"
 	echo >> "$LOGFILE"
+
+	FAILED="0"
+	PRESTATE="`ip addr show dev \"$IFACE\" up 2>>\"$LOGFILE\"`"
 
 	[ -n "$PRESTATE" ] && ip link set dev "$IFACE" down >>"$LOGFILE" 2>&1
 	macchanger -A "$IFACE" >>"$LOGFILE" 2>&1 || FAILED=1
