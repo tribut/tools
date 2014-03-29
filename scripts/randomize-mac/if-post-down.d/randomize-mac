@@ -12,10 +12,6 @@ LOGFILE="`mktemp`"
 IFSTATE="`ip addr show dev \"$IFACE\" 2>>\"$LOGFILE\"`"
 
 if [ -n "$IFSTATE" ]; then
-	date >> "$LOGFILE"
-	echo "Running randomize-mac for interface '$IFACE'" >> "$LOGFILE"
-	echo >> "$LOGFILE"
-
 	FAILED="0"
 	PRESTATE="`ip addr show dev \"$IFACE\" up 2>>\"$LOGFILE\"`"
 
@@ -24,10 +20,12 @@ if [ -n "$IFSTATE" ]; then
 	[ -n "$PRESTATE" ] && ip link set dev "$IFACE" up >>"$LOGFILE" 2>&1
 
 	if [ "$FAILED" = "1" ]; then
-		cat "$LOGFILE" | mail -s "[`hostname`] macchanger failed" root
+		echo "ERROR while trying to randomize MAC for $IFACE" | cat - "$LOGFILE" | logger -t randomize-mac -p user.err
+	else
+		echo "MAC successfully randomized for $IFACE" | logger -t randomize-mac -p user.notice
 	fi
 else
-	echo "Interface $IFACE does not exist, skipping..." >&2
+	echo "Interface $IFACE does not exist, skipping..." | logger -t randomize-mac -p user.info
 fi
 
 rm -f "$LOGFILE"
