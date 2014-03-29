@@ -6,6 +6,11 @@
 # a network interface is brought down (recent versions of
 # NetworkManager no longer support if-pre-up.d)
 #
+# Note that this will fail for wifi if you immediately connect
+# to another network instead of explicitly disconnecting from the
+# current one. In this case the MAC set before network-manager
+# started might be re-used (see init/randomize-mac.conf)!
+#
 # felix@tribut.de
 
 LOGFILE="`mktemp`"
