@@ -14,9 +14,8 @@ sedfilter() {
 	RETCODE="$?"
 
 	if [ 0 -eq "$RETCODE" ]; then
-		echo "## Filter successfully applied to $SOURCE, the changes are as follows:" >&2
+		echo "$SOURCE: done, the changes are as follows:" >&2
 		diff -u "$TEMPFILE" "$SOURCE" >&2
-		echo
 	fi
 
 	rm -f "$TEMPFILE"
