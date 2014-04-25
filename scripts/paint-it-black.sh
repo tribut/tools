@@ -4,17 +4,21 @@
 # and feel but that weird purple certainly is not among those.
 #     -- felix@tribut.de
 
+notice() {
+	echo "$@" >&2
+}
+
 sedfilter() {
 	SOURCE="$1"
 	FILTER="$2"
-	[ -w "$SOURCE" ] || { echo "$SOURCE not writeable" >&2; return 1; }
+	[ -w "$SOURCE" ] || { notice "$SOURCE not writeable"; return 1; }
 	TEMPFILE="`mktemp`"
 
 	cp "$SOURCE" "$TEMPFILE" && sed -r "$FILTER" < "$TEMPFILE" > "$SOURCE"
 	RETCODE="$?"
 
 	if [ 0 -eq "$RETCODE" ]; then
-		echo "$SOURCE: done, the changes are as follows:" >&2
+		notice "$SOURCE: done, the changes are as follows:"
 		diff -u "$TEMPFILE" "$SOURCE" >&2
 	fi
 
@@ -31,3 +35,5 @@ sedfilter \
 sedfilter \
 	/lib/plymouth/themes/ubuntu-text/ubuntu-text.plymouth \
 	's/^black=0x[a-fA-F0-9]{6}/black=0x000000/'
+
+notice "You may want to run 'update-initramfs -u -k all && update-grub' now :)"
