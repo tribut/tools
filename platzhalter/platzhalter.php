@@ -69,7 +69,7 @@ if (isset($_REQUEST['width_min'])) {
 	if ($user_width_min < $max_width && $user_width_min >= $min_width) {
 		$width_min = $user_width_min;
 	}
-	if ($width_min >= $width) {
+	if (@$width_min >= $width) {
 		$width = $width_min + 1;
 	}
 }
@@ -145,7 +145,7 @@ if ($width_mode == 1) { // "zwischen"
 <select name="width_min" onchange="javascript:document.forms[0].submit()">
 <?php
 for ($i = $min_width; $i <= $max_width; $i++) {
-        echo '<option value="'.$i.'" '.($width_min==$i?'selected':'').'>'.$i.'</option>';
+        echo '<option value="'.$i.'" '.(@$width_min==$i?'selected':'').'>'.$i.'</option>';
 }
 ?>
 </select>
@@ -185,7 +185,7 @@ foreach ($dictfiles as $name => $file) {
 <form method="post" action="<?php echo str_replace('"', '', $_SERVER['REQUEST_URI']); ?>#result">
 
 <input type="hidden" name="width" value="<?php echo $width; ?>">
-<input type="hidden" name="width_min" value="<?php echo $width_min; ?>">
+<input type="hidden" name="width_min" value="<?php echo @$width_min; ?>">
 <input type="hidden" name="width_mode" value="<?php echo $width_mode; ?>">
 <input type="hidden" name="dict" value="<?php echo $dict; ?>">
 
@@ -197,7 +197,7 @@ foreach ($dictfiles as $name => $file) {
 $field = 0;
 for ($i = 0; $i < $width; $i++) {
 	$formfield = 'preset' . $i;
-	$fielddata = str_replace('"', '', $_REQUEST[$formfield]);
+	@$fielddata = str_replace('"', '', $_REQUEST[$formfield]);
 
 	echo '<input id="field'.++$field.'" onKeyUp="advance('.$field.','.($field+1).')" type="text" name="' . $formfield . '" size="5" maxlength="1" value="'.(isset($_REQUEST['reset'])?'':$fielddata).'" >';
 }
@@ -213,7 +213,7 @@ echo "<br>\n";
 for ($i = 0; $i < $height; $i++) {
 	for ($j = 0; $j < $width; $j++) {
 		$formfield = 'value' . $i . $j;
-		$fielddata = str_replace('"', '', $_REQUEST[$formfield]);
+		@$fielddata = str_replace('"', '', $_REQUEST[$formfield]);
 
 		echo '<input id="field'.++$field.'" onKeyUp="advance('.$field.','.($field+1).')" type="text" name="' . $formfield . '" size="5" maxlength="1" value="'.(isset($_REQUEST['reset'])?'':$fielddata).'" >';
 	}
@@ -226,7 +226,7 @@ for ($i = 0; $i < $height; $i++) {
 <legend>Zulässige Buchstaben</legend>
 <p>Wenn das Feld ausgefüllt wird, werden nur Worte gesucht, die sich aus den <em>Buchstaben der Eingabe bilden lassen</em>.</p>
 <p>Wird hier also zum Beipiel "Brocken" eingegeben, lässt sich daraus BOCK bilden, nicht aber ECKE oder BRATEN).</p>
-<input type="text" name="buildfrom" size="20" value="<?php echo str_replace('"','',$_REQUEST['buildfrom']) ?>">
+<input type="text" name="buildfrom" size="20" value="<?php echo @str_replace('"','',$_REQUEST['buildfrom']) ?>">
 </fieldset>
 
 <input name="go" type="submit" value="Anzeigen">
