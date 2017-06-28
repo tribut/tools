@@ -102,7 +102,7 @@ if (isset($_REQUEST['dict'])) {
  document.getElementById("field"+nextField).focus();
  }
  //-->
-</script> 
+</script>
 <style type="text/css">
 html, body {
 	font-family: Verdana, Helvetica, sans-serif;
@@ -133,7 +133,7 @@ fieldset {
 <select name="width_mode" onchange="javascript:document.forms[0].submit()">
 <?php
 foreach ($width_modes as $index => $name) {
-        echo '<option value="'.$index.'" '.($width_mode==$index?'selected':'').'>'.$name.'</option>';
+	echo '<option value="'.$index.'" '.($width_mode==$index?'selected':'').'>'.$name.'</option>';
 }
 ?>
 </select>
@@ -145,7 +145,7 @@ if ($width_mode == 1) { // "zwischen"
 <select name="width_min" onchange="javascript:document.forms[0].submit()">
 <?php
 for ($i = $min_width; $i <= $max_width; $i++) {
-        echo '<option value="'.$i.'" '.(@$width_min==$i?'selected':'').'>'.$i.'</option>';
+	echo '<option value="'.$i.'" '.(@$width_min==$i?'selected':'').'>'.$i.'</option>';
 }
 ?>
 </select>
@@ -257,7 +257,7 @@ for ($i = $width - 1; $i >= 0; $i--) {
 			if (isset($values[$i][$j]))
 				$subquery .= $values[$i][$j];
 		}
-	
+
 		if (empty($subquery)) {
 			$query = '([A-ZÖÄÜß()&,0-9. -])' . $query;
 		}else{
@@ -306,24 +306,23 @@ echo '</tt></div>';
 
 <div style="margin: 3em 1em 0 1em; border: 1px black dashed; text-align: center; font-size: 0.7em">
 <p>
-  Fragen / Anregungen / Kontakt / neues Wörterbuch: <a target="_blank" href="https://tribut.de/kontakt" >hier abgeben</a>
+	Fragen / Anregungen / Kontakt / neues Wörterbuch: <a target="_blank" href="https://tribut.de/kontakt" >hier abgeben</a>
 </p>
 <p>
-  <!--[if lte IE 8]><span style="filter: FlipH; -ms-filter: "FlipH"; display: inline-block;"><![endif]-->
-  <span style="-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); display: inline-block;">
-    &copy;
-  </span>
-  <!--[if lte IE 8]></span><![endif]--> Der <a href="?show_source">Quelltext dieses Programms</a> (<a href="https://github.com/tribut/tools/tree/master/platzhalter">GitHub</a>) steht unter der <a href="https://www.gnu.org/copyleft/gpl.html" target="_blank">GNU GPL</a> zur Verfügung.
-  <span style="white-space: nowrap;">
-    Letzte Änderung: <?php echo date ("d.m.Y H:i", filemtime(__FILE__))?>.
-  </span>
+	<!--[if lte IE 8]><span style="filter: FlipH; -ms-filter: "FlipH"; display: inline-block;"><![endif]-->
+	<span style="-moz-transform: scaleX(-1); -o-transform: scaleX(-1); -webkit-transform: scaleX(-1); transform: scaleX(-1); display: inline-block;">
+	&copy;
+	</span>
+	<!--[if lte IE 8]></span><![endif]--> Der <a href="?show_source">Quelltext dieses Programms</a> (<a href="https://github.com/tribut/tools/tree/master/platzhalter">GitHub</a>) steht unter der <a href="https://www.gnu.org/copyleft/gpl.html" target="_blank">GNU GPL</a> zur Verfügung.
+	<span style="white-space: nowrap;">
+		Letzte Änderung: <?php echo date ("d.m.Y H:i", filemtime(__FILE__))?>.
+	</span>
 </p>
 </div>
 
 <p style="text-align: right; margin: 1em;">
-  <a href="https://flattr.com/submit/auto?user_id=dxbi&url=https://extern.tribut.de/platzhalter&title=Platzhalter&description=L%C3%B6sungshilfe%20f%C3%BCr%20Wortr%C3%A4tsel&language=de&tags=php&category=software"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" /></a>
+	<a href="https://flattr.com/submit/auto?user_id=dxbi&url=https://extern.tribut.de/platzhalter&title=Platzhalter&description=L%C3%B6sungshilfe%20f%C3%BCr%20Wortr%C3%A4tsel&language=de&tags=php&category=software"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" /></a>
 </p>
 
 </body>
 </html>
-
