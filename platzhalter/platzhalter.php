@@ -25,6 +25,7 @@ $dictfiles = array(   // wörterbuchdateien
 	"Deutsche Wörter" => "german.dic",
 	"Deutsche Städte" => "staedte.dic",
 	"Deutsche Städte und Gemeinden" => "gemeinden.dic",
+	"Englische Wörter" => "english.dic",
 	"KFZ-Kennzeichen Deutschland" => "kfz.dic",
 	"Automarken" => "autos.dic",
 	"Tiere" => "tiere.dic"
