@@ -40,4 +40,7 @@ sedfilter \
 	's/^black=0x[a-fA-F0-9]{6}/black=0x000000/'
 
 notice "You may want to run 'update-initramfs -u -k all && update-grub' now :)"
-notice "On 17.10 and above, check 'update-alternatives --config gdm3.css'"
+
+if update-alternatives --query gdm3.css | grep '^Link: ' | grep -q '/ubuntu.css$'
+	notice "To modify the background of gdm, check 'update-alternatives --config gdm3.css'"
+fi
