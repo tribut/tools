@@ -43,5 +43,5 @@ notice "You may want to run 'update-initramfs -u -k all && update-grub' now :)"
 
 if update-alternatives --query gdm3.css 2>/dev/null | grep '^Value: ' | grep -q '/ubuntu.css$'
 then
-	notice "To modify the background of gdm, check 'update-alternatives --config gdm3.css'"
+	notice "To modify the background of gdm, check 'update-alternatives --config gdm3-theme.gresource'"
 fi
