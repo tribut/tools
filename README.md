@@ -23,8 +23,6 @@ A repository of tools I wrote at some point but aren't deemed worthy of their ow
 
    A collection of scripts i consider useful enough to the general public.
 
-[![Flattr this](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=dxbi&url=https://github.com/tribut/tools&title=tribut/tools%20on%20GitHub&description=Some%20tools%20I%20wrote%20over%20the%20years%20and%20that%20don%27t%20deserve%20a%20repository%20of%20their%20own&tags=github,repository&category=software)
-
 ## Legal
 
 Unless otherwise noted, the files in this repository are copyright (c) 2001-2013 [Felix Eckhofer](https://tribut.de)
