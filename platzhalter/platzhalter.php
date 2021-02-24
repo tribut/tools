@@ -244,7 +244,9 @@ for ($i = 0; $i < $width; $i++) {
 			$values[$i][$j] = mb_strtoupper($_REQUEST[$formfield], 'UTF-8');
 		}
 	}
-	@$values[$i] = array_unique($values[$i]);
+	if (isset($values) && isset($values[$i])) {
+		$values[$i] = array_unique($values[$i]);
+	}
 }
 
 $query = '';
